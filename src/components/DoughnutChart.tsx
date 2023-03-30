@@ -3,7 +3,7 @@ import { Doughnut } from "react-chartjs-2";
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { Asset, Assets } from "./types";
+import { Asset, Assets } from "../interface/types";
 
 const DoughnutChart = ({ data }: Assets) => {
   const [assets, setAssets] = useState(data);
