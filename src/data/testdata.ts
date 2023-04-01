@@ -8,6 +8,7 @@ export const testData_totalAssets_1: totalAssets = {
     { label: "LabelD", value: 30 },
     { label: "LabelE", value: 30 },
   ],
+  date: new Date(2022, 1, 1),
 };
 
 export const testData_totalAssets_2: totalAssets = {
@@ -16,6 +17,7 @@ export const testData_totalAssets_2: totalAssets = {
     { label: "Label2", value: 20 },
     { label: "Label3", value: 30 },
   ],
+  date: new Date(2022, 2, 1),
 };
 
 export const testData_totalAssets_3: totalAssets = {
@@ -27,10 +29,12 @@ export const testData_totalAssets_3: totalAssets = {
     { label: "Labele", value: 20 },
     { label: "Labelf", value: 30 },
   ],
+  date: new Date(2022, 3, 1),
 };
 
 export const testData_totalAssets_4: totalAssets = {
   data: [{ label: "Labelあ", value: 10 }],
+  date: new Date(2022, 4, 1),
 };
 
 export const testData_totalAssets_5: totalAssets = {
@@ -46,6 +50,7 @@ export const testData_totalAssets_5: totalAssets = {
     { label: "Labelケ", value: 30 },
     { label: "Labeldコ", value: 10 },
   ],
+  date: new Date(2022, 5, 1),
 };
 
 export const testData_allAssetsData: allAssetsData = {

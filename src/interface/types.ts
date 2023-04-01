@@ -5,6 +5,7 @@ export interface asset {
 
 export interface totalAssets {
   data: asset[];
+  date: Date;
 }
 
 export interface allAssetsData {

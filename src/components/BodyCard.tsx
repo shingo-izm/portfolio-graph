@@ -6,12 +6,12 @@ import Button from "@mui/material/Button";
 import DoughnutChart from "./DoughnutChart";
 import { totalAssets } from "../interface/types";
 
-const BodyCard = ({ data }: totalAssets) => {
+const BodyCard = (totalAssets: totalAssets) => {
   return (
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined">
         <CardContent>
-          <DoughnutChart data={data} />
+          <DoughnutChart data={totalAssets.data} />
         </CardContent>
         <CardActions>
           <Button size="small">Learn More</Button>

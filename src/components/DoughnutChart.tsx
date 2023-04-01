@@ -1,10 +1,20 @@
 import "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
 import React, { useState } from "react";
-import { asset, totalAssets } from "../interface/types";
+import { asset } from "../interface/types";
+import {
+  Button,
+  Collapse,
+  Grid,
+  IconButton,
+  IconButtonProps,
+  styled,
+} from "@mui/material";
+import InputFormField from "./InputFormField";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const DoughnutChart = ({ data }: totalAssets) => {
-  const [assets, setAssets] = useState(data);
+const DoughnutChart = (Props: { data: asset[] }) => {
+  const [assets, setAssets] = useState(Props.data);
 
   const handleChange =
     (index: number, field: keyof asset) =>
@@ -35,28 +45,65 @@ const DoughnutChart = ({ data }: totalAssets) => {
     labels: assets.map((asset) => asset.label),
   };
 
+  const options = {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  };
+
+  interface ExpandMoreProps extends IconButtonProps {
+    expand: boolean;
+  }
+
+  const ExpandMore = styled((props: ExpandMoreProps) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+  })(({ theme, expand }) => ({
+    transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest,
+    }),
+  }));
+
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
   return (
-    <div>
-      <Doughnut data={chartData} />
-      {/* {assets.map((asset, index) => (
-        <div key={index}>
-          <TextField
-            label="Label"
-            value={asset.label}
-            onChange={handleChange(index, "label")}
-          />
-          <TextField
-            label="Value"
-            type="number"
-            value={asset.value}
-            onChange={handleChange(index, "value")}
-          />
-        </div>
-      ))}
-      <Button variant="contained" color="primary" onClick={handleClick}>
-        Save
-      </Button> */}
-    </div>
+    <Grid container spacing={1}>
+      <Grid item>
+        <Doughnut data={chartData} options={options} />
+      </Grid>
+      <Grid item>
+        <Button variant="contained" color="primary" onClick={handleClick}>
+          Save
+        </Button>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </Grid>
+      <Grid item>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <Grid item container spacing={1}>
+            {assets.map((currentValue) => (
+              <Grid item>
+                <InputFormField data={currentValue} />
+              </Grid>
+            ))}
+          </Grid>
+        </Collapse>
+      </Grid>
+    </Grid>
   );
 };
 
