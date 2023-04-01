@@ -4,9 +4,9 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import DoughnutChart from "./DoughnutChart";
-import { Assets } from "../interface/types";
+import { totalAssets } from "../interface/types";
 
-const BodyCard = ({ data }: Assets) => {
+const BodyCard = ({ data }: totalAssets) => {
   return (
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined">

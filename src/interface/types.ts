@@ -1,8 +1,12 @@
-export interface Asset {
+export interface asset {
   label: string;
   value: number;
 }
 
-export interface Assets {
-  data: Asset[];
+export interface totalAssets {
+  data: asset[];
+}
+
+export interface allAssetsData {
+  totalAssets: totalAssets[];
 }

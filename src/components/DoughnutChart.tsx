@@ -1,13 +1,13 @@
 import "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
 import React, { useState } from "react";
-import { Asset, Assets } from "../interface/types";
+import { asset, totalAssets } from "../interface/types";
 
-const DoughnutChart = ({ data }: Assets) => {
+const DoughnutChart = ({ data }: totalAssets) => {
   const [assets, setAssets] = useState(data);
 
   const handleChange =
-    (index: number, field: keyof Asset) =>
+    (index: number, field: keyof asset) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const newAssets = [...assets];
       newAssets[index] = { ...assets[index], [field]: +event.target.value };
