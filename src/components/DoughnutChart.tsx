@@ -1,8 +1,6 @@
 import "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import { Asset, Assets } from "../interface/types";
 
 const DoughnutChart = ({ data }: Assets) => {
@@ -40,7 +38,7 @@ const DoughnutChart = ({ data }: Assets) => {
   return (
     <div>
       <Doughnut data={chartData} />
-      {assets.map((asset, index) => (
+      {/* {assets.map((asset, index) => (
         <div key={index}>
           <TextField
             label="Label"
@@ -57,7 +55,7 @@ const DoughnutChart = ({ data }: Assets) => {
       ))}
       <Button variant="contained" color="primary" onClick={handleClick}>
         Save
-      </Button>
+      </Button> */}
     </div>
   );
 };

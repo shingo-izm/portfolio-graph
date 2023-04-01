@@ -4,16 +4,16 @@ import Content from "./components/Content";
 
 function App() {
   return (
-    <Grid container direction="column">
+    <Grid container direction="column" spacing={10}>
       <Grid item>
         <Header />
       </Grid>
       <Grid item container>
-        <Grid sm={2} />
-        <Grid xs={12} sm={8}>
+        <Grid sm={0.5} />
+        <Grid sm={11}>
           <Content />
         </Grid>
-        <Grid sm={2} />
+        <Grid sm={0.5} />
       </Grid>
     </Grid>
   );

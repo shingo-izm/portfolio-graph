@@ -3,7 +3,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 function Header() {
   return (
-    <AppBar position="static">
+    <AppBar>
       <Toolbar>
         <Typography flex="1">ヘッダー</Typography>
         <AccountCircleIcon />
