@@ -1,28 +1,29 @@
 import "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
 import React, { useState } from "react";
-import { asset } from "../interface/types";
 import {
   Button,
   Collapse,
   Grid,
   IconButton,
   IconButtonProps,
+  Typography,
   styled,
 } from "@mui/material";
 import InputFormField from "./InputFormField";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { totalAssets } from "../class/totalAssets";
 
-const DoughnutChart = (Props: { data: asset[] }) => {
-  const [assets, setAssets] = useState(Props.data);
+const DoughnutChart = (totalAssets: { data: totalAssets }) => {
+  const [assets, setAssets] = useState(totalAssets.data.assetData);
 
-  const handleChange =
-    (index: number, field: keyof asset) =>
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newAssets = [...assets];
-      newAssets[index] = { ...assets[index], [field]: +event.target.value };
-      setAssets(newAssets);
-    };
+  // const handleChange =
+  //   (index: number, field: keyof asset) =>
+  //   (event: React.ChangeEvent<HTMLInputElement>) => {
+  //     const newAssets = [...assets];
+  //     newAssets[index] = { ...assets[index], [field]: +event.target.value };
+  //     setAssets(newAssets);
+  //   };
 
   const handleClick = () => {
     // Do something with updated assets data
@@ -75,12 +76,21 @@ const DoughnutChart = (Props: { data: asset[] }) => {
   };
 
   return (
-    <Grid container spacing={1}>
+    <Grid container spacing={1} direction="column">
       <Grid item>
-        <Doughnut data={chartData} options={options} />
+        <Doughnut
+          data={chartData}
+          options={options}
+          style={{ width: "100%" }}
+        />
       </Grid>
       <Grid item>
-        <Button variant="contained" color="primary" onClick={handleClick}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleClick}
+          size="small"
+        >
           Save
         </Button>
         <ExpandMore
@@ -88,6 +98,7 @@ const DoughnutChart = (Props: { data: asset[] }) => {
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
+          size="small"
         >
           <ExpandMoreIcon />
         </ExpandMore>
@@ -102,6 +113,9 @@ const DoughnutChart = (Props: { data: asset[] }) => {
             ))}
           </Grid>
         </Collapse>
+      </Grid>
+      <Grid item>
+        <Typography>Total:{totalAssets.data.totalAmount}円</Typography>
       </Grid>
     </Grid>
   );

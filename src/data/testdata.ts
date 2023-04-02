@@ -1,64 +1,62 @@
-import { totalAssets, allAssetsData } from "../interface/types";
+import { allAssetsData } from "../class/allAssetsData";
+import { asset } from "../class/asset";
+import { totalAssets } from "../class/totalAssets";
 
-export const testData_totalAssets_1: totalAssets = {
-  data: [
-    { label: "LabelA", value: 10 },
-    { label: "LabelB", value: 20 },
-    { label: "LabelC", value: 30 },
-    { label: "LabelD", value: 30 },
-    { label: "LabelE", value: 30 },
+export const testData_totalAssets_1: totalAssets = new totalAssets(
+  [
+    new asset("LabelA", 10),
+    new asset("LabelB", 20),
+    new asset("LabelC", 20),
+    new asset("LabelD", 20),
+    new asset("LabelE", 20),
   ],
-  date: new Date(2022, 1, 1),
-};
+  new Date(2022, 1, 1)
+);
 
-export const testData_totalAssets_2: totalAssets = {
-  data: [
-    { label: "Label1", value: 10 },
-    { label: "Label2", value: 20 },
-    { label: "Label3", value: 30 },
+export const testData_totalAssets_2: totalAssets = new totalAssets(
+  [
+    new asset("Label1", 10),
+    new asset("Label2", 20),
+    new asset("Label3", 20),
+    new asset("LabelD", 20),
+    new asset("LabelE", 20),
   ],
-  date: new Date(2022, 2, 1),
-};
+  new Date(2022, 2, 1)
+);
 
-export const testData_totalAssets_3: totalAssets = {
-  data: [
-    { label: "Labela", value: 10 },
-    { label: "Labelb", value: 20 },
-    { label: "Labelc", value: 30 },
-    { label: "Labeld", value: 10 },
-    { label: "Labele", value: 20 },
-    { label: "Labelf", value: 30 },
+export const testData_totalAssets_3: totalAssets = new totalAssets(
+  [
+    new asset("Labela", 10),
+    new asset("Labelb", 20),
+    new asset("Labelc", 20),
+    new asset("Labeld", 20),
+    new asset("Labele", 20),
+    new asset("Labelf", 20),
   ],
-  date: new Date(2022, 3, 1),
-};
+  new Date(2022, 3, 1)
+);
 
-export const testData_totalAssets_4: totalAssets = {
-  data: [{ label: "Labelあ", value: 10 }],
-  date: new Date(2022, 4, 1),
-};
+export const testData_totalAssets_4: totalAssets = new totalAssets(
+  [new asset("Labelあ", 10)],
+  new Date(2022, 4, 1)
+);
 
-export const testData_totalAssets_5: totalAssets = {
-  data: [
-    { label: "Labelア", value: 10 },
-    { label: "Labelイ", value: 20 },
-    { label: "Labelウ", value: 30 },
-    { label: "Labeldエ", value: 10 },
-    { label: "Labeleオ", value: 20 },
-    { label: "Labelfカ", value: 30 },
-    { label: "Labelキ", value: 10 },
-    { label: "Labelク", value: 20 },
-    { label: "Labelケ", value: 30 },
-    { label: "Labeldコ", value: 10 },
+export const testData_totalAssets_5: totalAssets = new totalAssets(
+  [
+    new asset("Labelア", 10),
+    new asset("Labelイ", 20),
+    new asset("Labelウ", 20),
+    new asset("Labeldエ", 20),
+    new asset("Labeleオ", 20),
+    new asset("Labelfカ", 20),
   ],
-  date: new Date(2022, 5, 1),
-};
+  new Date(2022, 5, 1)
+);
 
-export const testData_allAssetsData: allAssetsData = {
-  totalAssets: [
-    testData_totalAssets_1,
-    testData_totalAssets_2,
-    testData_totalAssets_3,
-    testData_totalAssets_4,
-    testData_totalAssets_5,
-  ],
-};
+export const testData_allAssetsData: allAssetsData = new allAssetsData([
+  testData_totalAssets_1,
+  testData_totalAssets_2,
+  testData_totalAssets_3,
+  testData_totalAssets_4,
+  testData_totalAssets_5,
+]);

@@ -9,7 +9,7 @@ const Content = () => {
       <Grid container spacing={1}>
         {data.totalAssets.map((currentValue) => (
           <Grid item xs={12} sm={6} md={4} lg={3}>
-            <BodyCard data={currentValue.data} date={currentValue.date} />
+            <BodyCard data={currentValue} />
           </Grid>
         ))}
       </Grid>
